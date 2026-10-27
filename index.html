@@ -919,11 +919,17 @@ body:has(.hx-phone){background:#04161b}
 @media (prefers-reduced-motion:reduce){.hx-phone::after,.hx-phone .hx-dochead{animation:none!important}}
 </style>
 <style id="hx-focus-fix">
-/* 深色主題：輸入框聚焦/滑過時原本會變成純白底，淺色字就看不到了；改成稍亮的青色底 */
-:is(.hx-phone,.layout-web.hx-auth,.layout-web:has(a[href="#/d/pool"]),.layout-web:has(a[href="#/p/cases"]),.layout-web:has(a[href="#/r/doctors"])) .focus\:bg-white:focus,:is(.hx-phone,.layout-web.hx-auth,.layout-web:has(a[href="#/d/pool"]),.layout-web:has(a[href="#/p/cases"]),.layout-web:has(a[href="#/r/doctors"])) .focus-within\:bg-white:focus-within{background-color:rgba(127,245,228,.12)!important}
-:is(.hx-phone,.layout-web.hx-auth,.layout-web:has(a[href="#/d/pool"]),.layout-web:has(a[href="#/p/cases"]),.layout-web:has(a[href="#/r/doctors"])) .hover\:bg-white:hover{background-color:rgba(127,245,228,.12)!important}
-:is(.hx-phone,.layout-web.hx-auth,.layout-web:has(a[href="#/d/pool"]),.layout-web:has(a[href="#/p/cases"]),.layout-web:has(a[href="#/r/doctors"])) input,:is(.hx-phone,.layout-web.hx-auth,.layout-web:has(a[href="#/d/pool"]),.layout-web:has(a[href="#/p/cases"]),.layout-web:has(a[href="#/r/doctors"])) textarea,:is(.hx-phone,.layout-web.hx-auth,.layout-web:has(a[href="#/d/pool"]),.layout-web:has(a[href="#/p/cases"]),.layout-web:has(a[href="#/r/doctors"])) select{caret-color:#7ff5e4}
+/* 深色主題的輸入框：凹陷的深底＋細框；聚焦時亮青框＋外光暈，底色維持深色，字永遠是淺色看得清楚 */
+:is(.hx-phone,.layout-web.hx-auth,.layout-web:has(a[href="#/d/pool"]),.layout-web:has(a[href="#/p/cases"]),.layout-web:has(a[href="#/r/doctors"])) :is([class*="focus-within:bg-white"],input[class*="focus:bg-white"],textarea[class*="focus:bg-white"],select[class*="focus:bg-white"]){background:rgba(3,18,16,.55)!important;box-shadow:inset 0 0 0 1px rgba(127,245,228,.22),inset 0 2px 6px rgba(0,0,0,.35)!important;transition:box-shadow .18s ease,background-color .18s ease}
+:is(.hx-phone,.layout-web.hx-auth,.layout-web:has(a[href="#/d/pool"]),.layout-web:has(a[href="#/p/cases"]),.layout-web:has(a[href="#/r/doctors"])) :is([class*="focus-within:bg-white"],input[class*="focus:bg-white"],textarea[class*="focus:bg-white"],select[class*="focus:bg-white"]):hover{box-shadow:inset 0 0 0 1px rgba(127,245,228,.4),inset 0 2px 6px rgba(0,0,0,.35)!important}
+:is(.hx-phone,.layout-web.hx-auth,.layout-web:has(a[href="#/d/pool"]),.layout-web:has(a[href="#/p/cases"]),.layout-web:has(a[href="#/r/doctors"])) :is([class*="focus-within:bg-white"]:focus-within,input[class*="focus:bg-white"]:focus,textarea[class*="focus:bg-white"]:focus,select[class*="focus:bg-white"]:focus){background:rgba(3,18,16,.8)!important;box-shadow:inset 0 0 0 1.5px #7ff5e4,0 0 0 4px rgba(127,245,228,.14),0 0 18px -4px rgba(127,245,228,.45)!important}
+:is(.hx-phone,.layout-web.hx-auth,.layout-web:has(a[href="#/d/pool"]),.layout-web:has(a[href="#/p/cases"]),.layout-web:has(a[href="#/r/doctors"])) :is(input,textarea,select){color:#ecfcf9!important;-webkit-text-fill-color:#ecfcf9;caret-color:#7ff5e4}
+:is(.hx-phone,.layout-web.hx-auth,.layout-web:has(a[href="#/d/pool"]),.layout-web:has(a[href="#/p/cases"]),.layout-web:has(a[href="#/r/doctors"])) :is(input,textarea)::placeholder{color:rgba(236,252,249,.36)!important;-webkit-text-fill-color:rgba(236,252,249,.36)}
+:is(.hx-phone,.layout-web.hx-auth,.layout-web:has(a[href="#/d/pool"]),.layout-web:has(a[href="#/p/cases"]),.layout-web:has(a[href="#/r/doctors"])) [class*="focus-within:bg-white"] input{background:transparent!important;box-shadow:none!important}
+/* 瀏覽器自動填入會塗成淺黃/白底，改回深底淺字 */
+:is(.hx-phone,.layout-web.hx-auth,.layout-web:has(a[href="#/d/pool"]),.layout-web:has(a[href="#/p/cases"]),.layout-web:has(a[href="#/r/doctors"])) :is(input,textarea,select):-webkit-autofill{-webkit-text-fill-color:#ecfcf9!important;-webkit-box-shadow:0 0 0 40px #0b2522 inset!important;caret-color:#7ff5e4;transition:background-color 9999s}
 :is(.hx-phone,.layout-web.hx-auth,.layout-web:has(a[href="#/d/pool"]),.layout-web:has(a[href="#/p/cases"]),.layout-web:has(a[href="#/r/doctors"])) select option{background:#12302c;color:#ecfcf9}
+:is(.hx-phone,.layout-web.hx-auth,.layout-web:has(a[href="#/d/pool"]),.layout-web:has(a[href="#/p/cases"]),.layout-web:has(a[href="#/r/doctors"])) .hover\:bg-white:hover{background-color:rgba(127,245,228,.12)!important}
 </style></head>
   <body>
     <div id="root"></div>
