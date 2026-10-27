@@ -918,7 +918,13 @@ body:has(.hx-phone){background:#04161b}
 .hx-phone .bg-brand-800 h1 span{background:linear-gradient(90deg,#7ff5e4,#5ab8ff);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 10px rgba(127,245,228,.45))}
 @media (prefers-reduced-motion:reduce){.hx-phone::after,.hx-phone .hx-dochead{animation:none!important}}
 </style>
-</head>
+<style id="hx-focus-fix">
+/* 深色主題：輸入框聚焦/滑過時原本會變成純白底，淺色字就看不到了；改成稍亮的青色底 */
+:is(.hx-phone,.layout-web.hx-auth,.layout-web:has(a[href="#/d/pool"]),.layout-web:has(a[href="#/p/cases"]),.layout-web:has(a[href="#/r/doctors"])) .focus\:bg-white:focus,:is(.hx-phone,.layout-web.hx-auth,.layout-web:has(a[href="#/d/pool"]),.layout-web:has(a[href="#/p/cases"]),.layout-web:has(a[href="#/r/doctors"])) .focus-within\:bg-white:focus-within{background-color:rgba(127,245,228,.12)!important}
+:is(.hx-phone,.layout-web.hx-auth,.layout-web:has(a[href="#/d/pool"]),.layout-web:has(a[href="#/p/cases"]),.layout-web:has(a[href="#/r/doctors"])) .hover\:bg-white:hover{background-color:rgba(127,245,228,.12)!important}
+:is(.hx-phone,.layout-web.hx-auth,.layout-web:has(a[href="#/d/pool"]),.layout-web:has(a[href="#/p/cases"]),.layout-web:has(a[href="#/r/doctors"])) input,:is(.hx-phone,.layout-web.hx-auth,.layout-web:has(a[href="#/d/pool"]),.layout-web:has(a[href="#/p/cases"]),.layout-web:has(a[href="#/r/doctors"])) textarea,:is(.hx-phone,.layout-web.hx-auth,.layout-web:has(a[href="#/d/pool"]),.layout-web:has(a[href="#/p/cases"]),.layout-web:has(a[href="#/r/doctors"])) select{caret-color:#7ff5e4}
+:is(.hx-phone,.layout-web.hx-auth,.layout-web:has(a[href="#/d/pool"]),.layout-web:has(a[href="#/p/cases"]),.layout-web:has(a[href="#/r/doctors"])) select option{background:#12302c;color:#ecfcf9}
+</style></head>
   <body>
     <div id="root"></div>
   <script id="hx-demo-scenarios">
